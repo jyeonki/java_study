@@ -25,5 +25,6 @@ public class Comment {
 
         int a = 10, b = 20;
         System.out.println(a+b);
+
     } // end main
 } // end class
