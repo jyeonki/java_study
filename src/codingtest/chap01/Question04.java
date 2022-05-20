@@ -1,13 +1,8 @@
-package coding01;
+package codingtest.chap01;
 
-public class Question01 {
+public class Question04 {
 
     public static void main(String[] args) {
-
-        System.out.println("\\    /\\");
-        System.out.println(" )  ( ')");
-        System.out.println("(  /  )");
-        System.out.println(" \\(__)|");
 
         System.out.println("         ,r'\"7");
         System.out.println("r`-_   ,'  ,/");
