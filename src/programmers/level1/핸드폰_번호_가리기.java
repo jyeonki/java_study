@@ -1,6 +1,6 @@
-package programmers;
+package programmers.level1;
 
-public class 핸드폰번호가리기 {
+public class 핸드폰_번호_가리기 {
 
     public static String solution(String phone_number) {
         String answer = "";

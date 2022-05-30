@@ -1,6 +1,6 @@
-package programmers;
+package programmers.level1;
 
-public class 콜라츠추측 {
+public class 콜라츠_추측 {
 
     public static int solution(int num) {
         long number = num; // 오버플로우 방지

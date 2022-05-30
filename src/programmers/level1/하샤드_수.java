@@ -1,8 +1,6 @@
-package programmers;
+package programmers.level1;
 
-import java.util.Arrays;
-
-public class 하샤드수 {
+public class 하샤드_수 {
 
     public static boolean solution(int x) {
         boolean answer = true;

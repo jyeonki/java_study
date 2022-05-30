@@ -1,6 +1,6 @@
-package programmers;
+package programmers.level1;
 
-public class 부족한금액계산하기 {
+public class 부족한_금액_계산하기 {
 
     public static long solution(int price, int money, int count) {
 
