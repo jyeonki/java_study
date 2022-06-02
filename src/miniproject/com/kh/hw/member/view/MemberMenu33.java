@@ -6,7 +6,7 @@ import miniproject.com.kh.hw.member.model.vo.Member;
 
 import java.util.Scanner;
 
-public class MemberMenu {
+public class MemberMenu33 {
 
     Scanner sc = new Scanner(System.in);
 
@@ -67,7 +67,6 @@ public class MemberMenu {
             if (!mc.checkId(id)) break; // 아이디 중복 체크
             System.out.println("- 중복된 직원 아이디입니다!");
         }
-        Member member = new Member();
 
         String name = inputStr("- 이름: ");
         String rank = inputStr("- 직급: ");
@@ -75,23 +74,13 @@ public class MemberMenu {
         String phone = inputStr("- 전화번호: ");
         int family = inputNumber("- 가족 수: ");
 
-        member.setName(name);
-        member.setRank(rank);
-        member.setEmail(email);
-        member.setPhone(phone);
-        member.setFamily(family);
-        int basePay = member.getBasePay();
-        int familyBonus = member.getFamilyBonus();
-        double taxRate = member.getTaxRate();
-        int getMonthSalary = member.getMonthSalary();
-
-        mc.insertMember(id, name, rank, email, phone, basePay, family, familyBonus, taxRate, getMonthSalary);
+//        mc.insertMember(id, name, rank, email, phone, family);
 
         System.out.println("\n# 직원 등록이 완료되었습니다.");
 
     }
-    
-    
+
+
     // 2번 메뉴 처리 메서드
     // 직원 정보 조회
     private void searchMember() {
@@ -140,15 +129,15 @@ public class MemberMenu {
             switch (menu) {
                 case 1:
                     // 직원 개인정보 조회
-                    System.out.println(member.informBasic());
+                    member.informBasic();
                     break;
                 case 2:
                     // 직원 급여 조회
-                    System.out.println(member.informSalary());
+                    member.informSalary();
                     break;
                 case 3:
                     // 모든 정보 조회
-                    System.out.println(member.informTotal());
+                    member.informTotal();
                     break;
                 case 9:
                     return;
@@ -166,7 +155,6 @@ public class MemberMenu {
         Member[] members = mc.searchName(targetName);
         if (members.length > 0) {
 
-            System.out.println("\n=========== 검색된 회원 정보 ============");
             for (Member m : members) {
                 System.out.println("======================== 직원 정보 조회 ========================");
 
@@ -179,58 +167,55 @@ public class MemberMenu {
                 switch (menu) {
                     case 1:
                         // 직원 개인정보 조회
-                        System.out.println(m.informBasic());
+                        m.informBasic();
                         break;
                     case 2:
                         // 직원 급여 조회
-                        System.out.println(m.informSalary());
+                        m.informSalary();
                         break;
                     case 3:
                         // 모든 정보 조회
-                        System.out.println(m.informTotal());
+                        m.informTotal();
                         break;
                     case 9:
                         return;
                     default:
                         System.out.println("메뉴를 잘못 입력하셨습니다.");
                 }
-//                System.out.println(m.inform());
             }
         } else {
             System.out.println("\n- 존재하는 회원이 아닙니다.");
         }
     }
 
-    private void searchInformation(String targetId) {
-        Member member = mc.searchId(targetId);;
-
-        System.out.println("======================== 직원 정보 조회 ========================");
-
-        System.out.println("# 1. 직원 개인정보 조회");
-        System.out.println("# 2. 직원 급여 조회");
-        System.out.println("# 3. 모든 정보 조회");
-        System.out.println("# 9. 정보 조회 메뉴 나가기");
-
-        int menu = inputNumber("- 메뉴 입력: ");
-        switch (menu) {
-            case 1:
-                // 직원 개인정보 조회
-                member.informBasic();
-                break;
-            case 2:
-                // 직원 급여 조회
+//    private void searchInformation() {
+//        System.out.println("======================== 직원 정보 조회 ========================");
+//
+//        System.out.println("# 1. 직원 개인정보 조회");
+//        System.out.println("# 2. 직원 급여 조회");
+//        System.out.println("# 3. 모든 정보 조회");
+//        System.out.println("# 9. 정보 조회 메뉴 나가기");
+//
+//        int menu = inputNumber("- 메뉴 입력: ");
+//        switch (menu) {
+//            case 1:
+//                // 직원 개인정보 조회
+//                informbasic();
+//                break;
+//            case 2:
+//                // 직원 급여 조회
 //                checkSalary();
-                break;
-            case 3:
-                // 모든 정보 조회
+//                break;
+//            case 3:
+//                // 모든 정보 조회
 //                checkAll();
-                break;
-            case 9:
-                return;
-            default:
-                System.out.println("메뉴를 잘못 입력하셨습니다.");
-        }
-    }
+//                break;
+//            case 9:
+//                return;
+//            default:
+//                System.out.println("메뉴를 잘못 입력하셨습니다.");
+//        }
+//    }
     // 중복되는 부분을 어떻게 처리할지 고민
 
 

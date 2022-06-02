@@ -31,6 +31,27 @@ public class Member {
         this.family = family;
     }
 
+    public Member(String id, String name, String rank, String email, String phone, int basePay, int family, int familyBonus, double taxRate, int monthSalary) {
+        this.id = id;
+        this.name = name;
+        this.rank = rank;
+        this.email = email;
+        this.phone = phone;
+        this.basePay = basePay;
+        this.family = family;
+        this.familyBonus = familyBonus;
+        this.taxRate = taxRate;
+        this.monthSalary = monthSalary;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -90,7 +111,7 @@ public class Member {
     }
 
     public int getFamilyBonus() {
-        familyBonus = this.family * 100000;
+        familyBonus = family * 100000;
         return familyBonus;
     }
 
@@ -127,19 +148,19 @@ public class Member {
 
     // 메서드
     public String informBasic() {
-        return String.format("[이름 : %s || 직급 : %s || 이메일 : %s || 전화번호 : %s || 가족 수 : %d ]",
-                name, rank, email, phone, family);
+        return String.format("[사원 아이디: %s || 이름 : %s || 직급 : %s || 이메일 : %s || 전화번호 : %s || 가족 수 : %d ]",
+                id, name, rank, email, phone, family);
     }
 
     public String informSalary() {
-        return String.format("[이름 : %s || 직급 : %s || 기본급 : %d || 가족수당 : %d || 세율 : %.2f || 세후 급여 : %d ]",
-                name, rank, basePay, familyBonus, taxRate, monthSalary);
+        return String.format("[사원 아이디: %s || 이름 : %s || 직급 : %s || 기본급 : %d || 가족수당 : %d || 세율 : %.2f || 세후 급여 : %d ]",
+                id, name, rank, basePay, familyBonus, taxRate, monthSalary);
     }
 
     public String informTotal() {
-        return String.format("[이름 : %s || 직급 : %s || 이메일 : %s || 전화번호 : %s ||" +
+        return String.format("[사원 아이디: %s || 이름 : %s || 직급 : %s || 이메일 : %s || 전화번호 : %s ||" +
                         " 가족 수 : %d || 기본급 : %d || 가족수당 : %d || 세율 : %.2f || 세후 급여 : %d]",
-                name, rank, email, phone, family, basePay, familyBonus, taxRate, monthSalary);
+                id, name, rank, email, phone, family, basePay, familyBonus, taxRate, monthSalary);
     }
 
 
