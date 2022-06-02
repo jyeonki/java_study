@@ -53,6 +53,8 @@ public class MemberMenu33 {
 
     } // end mainMenu
 
+
+
     // method
 
     // 1번 메뉴 처리 메서드
