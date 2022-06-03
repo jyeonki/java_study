@@ -67,25 +67,21 @@ public class MemberMenu {
             if (!mc.checkId(id)) break; // 아이디 중복 체크
             System.out.println("- 중복된 직원 아이디입니다!");
         }
-        Member member = new Member();
 
         String name = inputStr("- 이름: ");
-        String rank = inputStr("- 직급: ");
+        String rank = inputStr("- 직급 [사원, 대리, 과장, 부장]: ");
         String email = inputStr("- 이메일: ");
         String phone = inputStr("- 전화번호: ");
         int family = inputNumber("- 가족 수: ");
 
-        member.setName(name);
-        member.setRank(rank);
-        member.setEmail(email);
-        member.setPhone(phone);
-        member.setFamily(family);
-        int basePay = member.getBasePay();
-        int familyBonus = member.getFamilyBonus();
-        double taxRate = member.getTaxRate();
-        int getMonthSalary = member.getMonthSalary();
 
-        mc.insertMember(id, name, rank, email, phone, basePay, family, familyBonus, taxRate, getMonthSalary);
+//        mc.insertMember(id, name, rank, email, phone, family);
+
+        Member member = new Member(id, name, rank, email, phone, family);
+
+        mc.insertMember(member);
+
+
 
         System.out.println("\n# 직원 등록이 완료되었습니다.");
 
@@ -201,38 +197,37 @@ public class MemberMenu {
         }
     }
 
-    private void searchInformation(String targetId) {
-        Member member = mc.searchId(targetId);;
-
-        System.out.println("======================== 직원 정보 조회 ========================");
-
-        System.out.println("# 1. 직원 개인정보 조회");
-        System.out.println("# 2. 직원 급여 조회");
-        System.out.println("# 3. 모든 정보 조회");
-        System.out.println("# 9. 정보 조회 메뉴 나가기");
-
-        int menu = inputNumber("- 메뉴 입력: ");
-        switch (menu) {
-            case 1:
-                // 직원 개인정보 조회
-                member.informBasic();
-                break;
-            case 2:
-                // 직원 급여 조회
-//                checkSalary();
-                break;
-            case 3:
-                // 모든 정보 조회
-//                checkAll();
-                break;
-            case 9:
-                return;
-            default:
-                System.out.println("메뉴를 잘못 입력하셨습니다.");
-        }
-    }
+//    private void searchInformation(String targetId) {
+//        Member member = mc.searchId(targetId);;
+//
+//        System.out.println("======================== 직원 정보 조회 ========================");
+//
+//        System.out.println("# 1. 직원 개인정보 조회");
+//        System.out.println("# 2. 직원 급여 조회");
+//        System.out.println("# 3. 모든 정보 조회");
+//        System.out.println("# 9. 정보 조회 메뉴 나가기");
+//
+//        int menu = inputNumber("- 메뉴 입력: ");
+//        switch (menu) {
+//            case 1:
+//                // 직원 개인정보 조회
+//                member.informBasic();
+//                break;
+//            case 2:
+//                // 직원 급여 조회
+////                checkSalary();
+//                break;
+//            case 3:
+//                // 모든 정보 조회
+////                checkAll();
+//                break;
+//            case 9:
+//                return;
+//            default:
+//                System.out.println("메뉴를 잘못 입력하셨습니다.");
+//        }
+//    }
     // 중복되는 부분을 어떻게 처리할지 고민
-
 
 
 
