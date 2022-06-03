@@ -116,6 +116,7 @@ public class Member {
     }
 
 
+
     // 메서드
     public String informBasic() {
         return String.format("[사원 아이디: %s || 이름 : %s || 직급 : %s || 이메일 : %s || 전화번호 : %s || 가족 수 : %d ]",
