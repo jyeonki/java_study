@@ -4,15 +4,16 @@ import miniproject.com.kh.hw.member.model.vo.Member;
 
 public class MemberController {
 
-    private Member[] m = new Member[SIZE];
+    private Member[] memberList = new Member[SIZE];
 
     public static final int SIZE = 10;
 
 
+
     // 생성자
     public MemberController() {
-        m[0] = new Member("hgd220602","홍길동", "부장", "abc@naver.com", "010-1234-5678", 4);
-        m[1] = new Member("kcs220602", "김철수", "대리", "def@naver.com", "010-4567-1234", 5);
+        memberList[0] = new Member("hgd220602","홍길동", "부장", "abc@naver.com", "010-1234-5678", 4);
+        memberList[1] = new Member("kcs220602", "김철수", "대리", "def@naver.com", "010-4567-1234", 5);
     }
 
     // 메서드
@@ -23,12 +24,8 @@ public class MemberController {
      */
     public int existMemberNum() {
         int count = 0; // 실제 저장된 직원의 수
-//        for (int i = 0; i < m.length ; i++) {
-//            if (m[i]!= null) {
-//                count++;
-//            }
-//        } // 맞는지 확인하기
-        for (Member member : m) {
+
+        for (Member member : memberList) {
             if (member == null) break;
             count++;
         }
@@ -48,17 +45,23 @@ public class MemberController {
 
     //직원 배열 리턴
     public Member[] printAll() {
-        return m;
+        return memberList;
     }
 
     //직원정보를 배열 m에 저장하는 메서드
-    public void insertMember(String id, String name, String rank, String email, String phone,
-                             int basePay, int family, int familyBonus, double taxRate, int monthSalary) {
+    public void insertMember(Member newMember) {
 
         int count = existMemberNum(); // 현재 직원 수
-        m[count] = new Member(id, name, rank, email, phone, basePay, family, familyBonus, taxRate, monthSalary); // 추가 할 직원
+        memberList[count] = newMember; // 추가 할 직원
 
     }
+//    public void insertMember(String id, String name, String rank, String email, String phone,
+//                             int family) {
+//
+//        int count = existMemberNum(); // 현재 직원 수
+//        memberList[count] = new Member(id, name, rank, email, phone, family); // 추가 할 직원
+//
+//    }
 
 
     /**
@@ -70,7 +73,7 @@ public class MemberController {
      */
     public Member searchId(String inputId) {
         int index = findIndexById(inputId);
-        return (index != -1) ? m[index] : null;
+        return (index != -1) ? memberList[index] : null;
     }
 
 
@@ -85,8 +88,8 @@ public class MemberController {
         Member[] temp = new Member[SIZE];
         int count = 0;
         for (int i = 0; i < existMemberNum(); i++) {
-            if (name.equals(m[i].getName())) {
-                temp[count++] = m[i];
+            if (name.equals(memberList[i].getName())) {
+                temp[count++] = memberList[i];
             }
         }
         // 리턴할 배열
@@ -158,19 +161,6 @@ public class MemberController {
         return false;
     }
 
-    public void checkPersonalData() {
-//        member.inform();
-    }
-
-    public void checkSalary() {
-
-    }
-
-    public void checkAll() {
-
-    }
-
-
 
 
     /**
@@ -182,7 +172,7 @@ public class MemberController {
     public int findIndexById(String id) {
         int index = -1;
         for (int i = 0; i < existMemberNum(); i++) { // 직원이 있는 만큼만 for문을 돌리겠다
-            if (id.equals(m[i].getId())) {
+            if (id.equals(memberList[i].getId())) {
                 index = i;
                 break;
             }
@@ -203,10 +193,10 @@ public class MemberController {
         if (index != -1) {
             int count = existMemberNum();
             for (int i = index; i < count - 1; i++) {
-                m[i] = m[i+1];
+                memberList[i] = memberList[i+1];
             }
             // 기존 마지막 직원자리의 주소를 null로 변경
-            m[count - 1] = null;
+            memberList[count - 1] = null;
             return true;
         }
         return false;
@@ -216,7 +206,7 @@ public class MemberController {
     public void delete() {
         int count = existMemberNum();
         for (int i = 0; i < count; i++) {
-            m[i] = null;
+            memberList[i] = null;
         }
     }
 

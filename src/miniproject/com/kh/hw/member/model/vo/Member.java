@@ -12,6 +12,7 @@ public class Member {
 //        private Bonus[] bonus;
 
     private int familyBonus; // 가족 수당 인당 10만원
+    private int familyBonusRate = 100000;
 
     private double taxRate; // 세율
 
@@ -19,9 +20,6 @@ public class Member {
 
 
     //생성자
-    public Member() {
-
-    }
     public Member(String id, String name, String rank, String email, String phone, int family) {
         this.id = id;
         this.name = name;
@@ -29,20 +27,13 @@ public class Member {
         this.email = email;
         this.phone = phone;
         this.family = family;
+
+        initBasePay(rank);
+        initFamilyBonus(family);
+        initTaxRate();      // 기본급, 가족보너스 산출 후 실행되어야함.
+        initMonthSalary();   // 기본급, 가족보너스, 세율 산출 후 실행되어야함.
     }
 
-    public Member(String id, String name, String rank, String email, String phone, int basePay, int family, int familyBonus, double taxRate, int monthSalary) {
-        this.id = id;
-        this.name = name;
-        this.rank = rank;
-        this.email = email;
-        this.phone = phone;
-        this.basePay = basePay;
-        this.family = family;
-        this.familyBonus = familyBonus;
-        this.taxRate = taxRate;
-        this.monthSalary = monthSalary;
-    }
 
     public String getId() {
         return id;
@@ -85,16 +76,6 @@ public class Member {
     }
 
     public int getBasePay() {
-        switch (rank) {
-            case "사원" :
-                basePay = 2000000;
-            case "대리" :
-                basePay = 2500000;
-            case "과장" :
-                basePay = 3000000;
-            case "부장" :
-                basePay = 3500000;
-        }
         return basePay;
     }
 
@@ -111,7 +92,6 @@ public class Member {
     }
 
     public int getFamilyBonus() {
-        familyBonus = family * 100000;
         return familyBonus;
     }
 
@@ -120,16 +100,6 @@ public class Member {
     }
 
     public double getTaxRate() {
-        int sum = basePay + familyBonus;
-        if (sum >= 2000000 && sum < 2500000) {
-            taxRate = 0.05;
-        } else if (sum >= 2500000 && sum < 3000000) {
-            taxRate = 0.1;
-        } else if (sum >= 3000000 && sum < 3500000) {
-            taxRate = 0.15;
-        } else if (sum >= 3500000) {
-            taxRate = 0.2;
-        }
         return taxRate;
     }
 
@@ -138,13 +108,13 @@ public class Member {
     }
 
     public int getMonthSalary() {
-        monthSalary = (int) (basePay + familyBonus - ((basePay + familyBonus) * taxRate));
         return monthSalary;
     }
 
     public void setMonthSalary(int monthSalary) {
         this.monthSalary = monthSalary;
     }
+
 
     // 메서드
     public String informBasic() {
@@ -163,5 +133,47 @@ public class Member {
                 id, name, rank, email, phone, family, basePay, familyBonus, taxRate, monthSalary);
     }
 
+    private void initBasePay(String rank) {
+
+        switch (rank) {
+            case "사원" :
+                setBasePay(2000000);
+                break;
+            case "대리" :
+                setBasePay(2500000);
+                break;
+            case "과장" :
+                setBasePay(3000000);
+                break;
+            case "부장" :
+                setBasePay(3500000);
+                break;
+        }
+    }
+
+    private void initFamilyBonus(int family) {
+
+        setFamilyBonus(family * this.familyBonusRate);
+    }
+
+    private void initTaxRate() {
+
+        int sum = this.basePay + this.familyBonus;
+
+        if (sum >= 2000000 && sum < 2500000) {
+            setTaxRate(0.05);
+        } else if (sum >= 2500000 && sum < 3000000) {
+            setTaxRate(0.1);
+        } else if (sum >= 3000000 && sum < 3500000) {
+            setTaxRate(0.15);
+        } else if (sum >= 3500000) {
+            setTaxRate(0.2);
+        }
+    }
+
+    private void initMonthSalary() {
+
+        setMonthSalary((int) (basePay + familyBonus - ((basePay + familyBonus) * taxRate)));
+    }
 
 } // end class
