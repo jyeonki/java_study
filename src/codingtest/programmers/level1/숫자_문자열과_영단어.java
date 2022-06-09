@@ -22,6 +22,9 @@ public class 숫자_문자열과_영단어 {
         */
 
         System.out.println(solution("one4seveneight"));
+        System.out.println(solution("23four5six7"));
+        System.out.println(solution("2three45sixseven"));
+        System.out.println(solution("123"));
 
     }
 }

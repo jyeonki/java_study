@@ -34,6 +34,24 @@ public class 이상한_문자_만들기 {
 
         return answer;
 
+        /*
+        // 단어 위치를 기억할 변수
+        int count = 0;
+        // 완성문자열이 저장될 변수
+        String answer = "";
+
+        for (int i = 0; i < s.length(); i++) {
+            // 한글자씩 추출
+            char c = s.charAt(i);
+            // count값은 공백인 경우 0이되고 아닌경우 1씩증가
+            count = (c == ' ') ? 0 : count + 1;
+            // c를 문자열로 변환
+            String ss = String.valueOf(c);
+            answer += (count % 2 == 1) ? ss.toUpperCase() : ss.toLowerCase();
+        }
+        return answer;
+        */
+
     }
 
     public static void main(String[] args) {

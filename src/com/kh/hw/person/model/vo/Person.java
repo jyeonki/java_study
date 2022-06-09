@@ -8,7 +8,6 @@ public class Person {
     private double weight;
 
     public Person() {
-
     }
 
     public Person(String name, int age, double height, double weight) {
@@ -17,11 +16,6 @@ public class Person {
         this.height = height;
         this.weight = weight;
     }
-
-    public String toString() {
-        return String.format("이름: %s, 나이: %d, 키: %f, 몸무게: %f", name, age, height, weight);
-    }
-
 
     public String getName() {
         return name;
@@ -54,4 +48,10 @@ public class Person {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
+    public String toString() {
+        return String.format("%s, %d, %.1f, %.1f"
+                , name, age, height, weight);
+    }
+
 }

@@ -15,8 +15,8 @@ public class PointMenu {
         sc = new Scanner(System.in);
         cc = new CircleController();
         rc = new RectangleController();
-        
-        this.mainMenu(); // 생성자 호출하자마자 바로 메인 메뉴 실행
+
+        this.mainMenu(); // 생성자 호출하자마자 바로 메인메뉴 실행
     }
 
     public void mainMenu() {
@@ -70,7 +70,7 @@ public class PointMenu {
             default: return;
         }
     }
-    public void calcCircum() {   // 원의 둘레 구하는 메서드
+    public void calcCircum() {	// 원의 둘레 구하는 메서드
         System.out.print("x 좌표 : ");
         int x = sc.nextInt();
         System.out.print("y 좌표 : ");
@@ -80,7 +80,7 @@ public class PointMenu {
         String result = cc.calcCircum(x, y, radius);
         System.out.println("둘레 : "+result);
     }
-    public void calcCircleArea() {   // 원의 면적 구하는 메서드
+    public void calcCircleArea() {	// 원의 면적 구하는 메서드
         System.out.print("x 좌표 : ");
         int x = sc.nextInt();
         System.out.print("y 좌표 : ");
@@ -90,7 +90,7 @@ public class PointMenu {
         String result = cc.calcArea(x, y, radius);
         System.out.println("면적 : "+result);
     }
-    public void calcPerimeter() {   // 사각형의 둘레 구하는 메서드
+    public void calcPerimeter() {	// 사각형의 둘레 구하는 메서드
         System.out.print("x 좌표 : ");
         int x = sc.nextInt();
         System.out.print("y 좌표 : ");
@@ -102,7 +102,7 @@ public class PointMenu {
         String result = rc.calcPerimeter(x, y, height, width);
         System.out.println("둘레 : "+result);
     }
-    public void calcRectArea() {   // 사각형의 면적 구하는 메서드
+    public void calcRectArea() {	// 사각형의 면적 구하는 메서드
         System.out.print("x 좌표 : ");
         int x = sc.nextInt();
         System.out.print("y 좌표 : ");

@@ -51,9 +51,9 @@ public class DoublyLinkedList {
         }
     }
 
-
-    // 리스트에서 노드를 삭제하는 매서드
+    // 리스트에서 노드를 삭제하는 메서드
     public Node remove(int data) {
+
         Node current = sentinel.getFirstNode();
         Node prev = null;
 
@@ -61,6 +61,7 @@ public class DoublyLinkedList {
             prev = current;
             current = current.getNextNode();
         }
+
         // 삭제 대상이 맨 첫번째 노드인 경우
         if (sentinel.getFirstNode() == current) {
             // 기존의 두번째 노드의 이전노드를 null로
@@ -100,4 +101,5 @@ public class DoublyLinkedList {
         str += " ]";
         return str;
     }
+
 }

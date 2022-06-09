@@ -27,7 +27,4 @@ public class HeaderNode {
     public boolean isEmpty() {
         return firstNode == null;
     }
-
-
-
 }
