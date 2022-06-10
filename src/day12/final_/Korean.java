@@ -6,14 +6,17 @@ public class Korean {
     final String id;// 주민번호
 
     // 상수: 불변성과 유일성을 모두 만족
-    public static final String nation;  // 출신국가
+    public static final String nation;  // 국적
+
     static {
         nation = "대한민국";
     }
 
-    public Korean(String name, String id) {
+    public Korean(String name, String id, String nation) {
         this.name = name;
         this.id = id;
+//        this.nation = nation;
+
     }
     // final을 지정하려면 초기화가 되어있어야한다
     // 그래서 nation은 final로 지정이 불가능하다
@@ -41,7 +44,7 @@ public class Korean {
     // 주민번호를 바꾸는 메서드
     public void changeId(String id) {
         // this.id = id;
-        // id설정이 private이면 가능하지만, final은 같은 클래스 안에서도 값을 바꿀 수없다
+        // id설정이 private이면 가능하지만, final은 같은 클래스 안에서도 값을 바꿀 수 없다
 
     }
 

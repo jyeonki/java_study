@@ -48,7 +48,7 @@ public class Stack {
     }
 
     // 스택에서 자료를 제거
-    public Integer pop() { // Integer는 null 반환 가능 (int는 안됨)
+    public Integer pop() {   // Integer는 null 반환 가능 (int는 안됨)
         if (isEmpty()) { // 스택이 비었으면
             System.out.println("stack is empty!");
             return null;

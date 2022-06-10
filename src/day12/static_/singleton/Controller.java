@@ -6,8 +6,9 @@ public class Controller {
     public int number;
 
     // 2. 필드로 객체를 딱 하나 생성시키는데
-    //     static 제한을 걸어서 공유객체로 전환
+    //    static 제한을 걸어서 공유객체로 전환
     private static Controller con;
+
     static {
         con = new Controller();
     }
@@ -18,10 +19,9 @@ public class Controller {
 
     }
 
-    // 3. 준비된 단 하나의 객체를 public 메서드를 통해 제공
+    //3. 준비된 단 하나의 객체를 public메서드를 통해 제공
     public static Controller getInstance() {
-        if(con != null) return con;
+        if (con != null) return con;
         return new Controller();
     }
-
 }

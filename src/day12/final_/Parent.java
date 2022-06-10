@@ -4,7 +4,9 @@ class Child extends Parent{
 //    void m1() {} // final
 
     @Override
-    void m2() {}
+    void m2() {
+        String s;
+    }
 
     @Override
     void m3() {}
