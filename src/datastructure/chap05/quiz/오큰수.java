@@ -16,11 +16,11 @@ public class 오큰수 {
         int N = sc.nextInt();
         int[] arr = new int[N];
 
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             arr[i] = sc.nextInt();
         }
 
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
 
             while (!stack.isEmpty() && arr[stack.peek()] < arr[i]) {
 
@@ -36,10 +36,31 @@ public class 오큰수 {
 
 //        System.out.println(Arrays.toString(arr));
 
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             arr[stack.pop()] = -1;
         }
 
+
+
+        /*
+            A   3 5 2 7
+            S   5 7 7
+
+            1:  A[0] < A[1] -  S[0] = A[1]
+            2:  A[1] > A[2] -  1번인덱스 스킵
+            3:  A[2] < A[3] -  S[2] = A[3]
+                A[1] < A[3] -  S[1] = A[3]
+
+
+            A   9 5 4 8
+            S  -1 8 8 -1
+
+            1: A[0] > A[1]  - 0번 스킵
+            2: A[1] > A[2]  - 1번 스킵
+            3: A[2] < A[3]  - S[2] = A[3]
+               A[1] < A[3]  - S[1] = A[3]
+               A[0] > A[3]  - 0번 스킵
+        */
 
 
 
