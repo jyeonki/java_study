@@ -22,7 +22,7 @@ public class QueueExample {
         System.out.println("removed = " + removed);
 
         // 큐 전체 보기
-        System.out.println(que.toString()); // toString 생략가능
+        System.out.println(que.toString());
 
         // 전체 삭제
         while (!que.isEmpty()) {
