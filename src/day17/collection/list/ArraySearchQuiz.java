@@ -1,6 +1,8 @@
 package day17.collection.list;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ArraySearchQuiz {
@@ -10,38 +12,9 @@ public class ArraySearchQuiz {
         Scanner sc = new Scanner(System.in);
 
         String[] tvxq = {"영웅재중", "최강창민", "시아준수", "믹키유천", "유노윤호"};
+        List<String > tvxqList = new ArrayList<>(Arrays.asList(tvxq));
 
-        System.out.println("* 변경 전 정보: [영웅재중, 최강창민, 시아준수, 믹키유천, 유노윤호]");
-
-        while(true) {
-            System.out.println("- 수정할 멤버의 이름을 입력하세요.");
-            System.out.print(">> ");
-
-            String targetName = sc.nextLine();
-
-            int index = -1;
-
-            for (int i = 0; i < tvxq.length ; i++) {
-                if (targetName.equals(tvxq[i])) {
-                    index = i;
-                }
-            }
-
-            System.out.printf("%s의 별명을 변경합니다. \n", targetName);
-            System.out.print(">> ");
-            String newName = sc.nextLine();
-
-            tvxq[index] = newName;
-            break;
-        }
-        System.out.println("삭제 후: " + Arrays.toString(tvxq));
-
-        /*
-        Scanner sc = new Scanner(System.in);
-
-        String[] tvxq = {"영웅재중", "최강창민", "시아준수", "믹키유천", "유노윤호"};
-
-        System.out.println("* 변경 전 정보: " + Arrays.toString(tvxq));
+        System.out.println("* 변경 전 정보: " + tvxqList);
 
         // 1. 수정 타겟의 이름을 입력받는다.
         // 2. 해당 이름이 있는지 탐색해본다.
@@ -57,28 +30,29 @@ public class ArraySearchQuiz {
             String targetName = sc.next();
 
             //탐색 알고리즘
-            int index = -1;
-            for (int i = 0; i < tvxq.length; i++) {
-                if (targetName.equals(tvxq[i])) {
-                    index = i;
-                    break;
-                }
-            }
+            int index = tvxqList.indexOf(targetName);
 
             //수정 여부 판단
-            if (index != -1) { // (index > -1)
+            if (index > -1) {
                 System.out.printf("%s의 별명을 변경합니다.\n", targetName);
                 System.out.printf(">> ");
                 String newName = sc.next();
-                tvxq[index] = newName;
+
+                tvxqList.set(index, newName);
+
                 System.out.println("변경 완료!!");
-                System.out.println("* 변경 후 정보: " + Arrays.toString(tvxq));
+                System.out.println("* 변경 후 정보: " + tvxqList);
                 break;
             } else {
                 System.out.printf("%s은(는) 없는 이름입니다.\n", targetName);
             }
-        }
+        } //end while
         sc.close();
-        */
     }
 }
+
+
+
+
+
+

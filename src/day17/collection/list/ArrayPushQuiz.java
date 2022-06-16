@@ -1,13 +1,15 @@
 package day17.collection.list;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ArrayPushQuiz {
 
     public static void main(String[] args) {
 
-        String[] foodList = new String[0];
+        List<String> foodList = new ArrayList<>();
 //        String[] foodList = {}; // 두개 다 빈배열
 
         /*
@@ -33,16 +35,10 @@ public class ArrayPushQuiz {
 
             if (newFood.equals("그만")) break;
 
-            String[] temp = new String[foodList.length + 1];
-
-            for (int i = 0; i < foodList.length; i++) {
-                temp[i] = foodList[i];
-            }
-            temp[temp.length-1] = newFood;
-            foodList = temp;
+           foodList.add(newFood);
         }// end while
 
-        System.out.println("먹고 싶은 음식리스트: " + Arrays.toString(foodList));
+        System.out.println("먹고 싶은 음식리스트: " + foodList.toString());
         sc.close();
 
     }
