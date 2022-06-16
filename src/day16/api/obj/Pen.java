@@ -32,19 +32,21 @@ public class Pen extends Object implements Cloneable {
         return false;
     }
 
-    // clone: 객체 복사 (얕은 복사 개념: 해당 포인터 객체만 복사)
+    // clone: 객체 복사 : 얕은 복사 개념 ( 해당 포인터 객체만 복사 )
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-    
-    // 깊은 복사: 해당 객체뿐만 아니라 컴포지션된 객체도 모두 복사
+
+    // 깊은 복사 : 해당 객체뿐만아니라 컴포지션된 객체도 모두 복사
     public Pen deepClone() throws CloneNotSupportedException {
         // 1. 우선 얕은 복사 진행
         Pen copy = (Pen) this.clone();
+        // 2. 컴포지션된 객체도 복사 진행
         copy.company = (Company) copy.company.clone();
         return copy;
     }
+
 
     @Override
     public String toString() {

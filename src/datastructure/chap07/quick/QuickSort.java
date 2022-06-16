@@ -95,8 +95,22 @@ public class QuickSort {
     public static void main(String[] args) {
 
         int[] arr = {1, 11, 88, 55, 99, 77, 66, 44, 22, 33};
-        sort(arr);
+//        sort(arr);
+
+        Arrays.sort(arr);
 
         System.out.println("정렬 후: " + Arrays.toString(arr));
+
+
+        /*int[] iArr = new int[10000];
+
+        int limit = 3;
+        int idx = 0;
+        while (true) {
+            if (idx < limit) {
+                iArr[idx++] = 10;
+            }
+        }*/
+
     }
 }

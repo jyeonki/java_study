@@ -51,6 +51,7 @@ public class StringExample {
             foods[i] = st.nextToken();
         }
 
+        System.out.println(foods.length);
         System.out.println(Arrays.toString(foods));
 
 

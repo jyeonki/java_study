@@ -1,12 +1,16 @@
 package datastructure.chap07.radix;
 
+import datastructure.chap06.bubble.BubbleSort;
+import datastructure.chap06.insertion.InsertionSort;
+import datastructure.chap06.selection.SelectionSort;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class RadixSort {
 
-    // radix sort (음수는 음수배열, 양수배열 따로 만들어서 음수배열을 절대값으로 만들어서 해야함)
+    // radix sort
     public static void sort(int[] arr) {
 
         // 최대 자리수 구하기
@@ -46,9 +50,9 @@ public class RadixSort {
                 예를 들어 753이면 i = 1일 때는 5을 뽑아야 함
                 예를 들어 753이면 i = 2일 때는 7을 뽑아야 함
 
-                753 / 10^0 % 10 ==>  3
-                753 / 10^1 % 10 ==>  5
-                753 / 10^2 % 10 ==>  7
+                753 / 10^0 % 10      ==>  3
+                753 / 10^1 % 10      ==>  5
+                753 / 10^2 % 10      ==>  7
 
                 target / 10^i % 10
              */
@@ -71,11 +75,23 @@ public class RadixSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {753, 427, 450, 422, 220,
-                125, 332, 339, 1990, 660};
+//        int[] arr = {753, 427, 450, 422, 220,
+//                125, 332, 339, 1990, 660};
 
-        sort(arr);
+        int[] arr = new int[100000];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = arr.length - i;
+        }
 
-        System.out.println("정렬 후: " + Arrays.toString(arr));
+        long s = System.currentTimeMillis();
+//        Arrays.sort(arr);         // 16
+//        sort(arr);                // 94
+//        BubbleSort.sort(arr);     // 4232
+//        SelectionSort.sort(arr);  // 3688
+//        InsertionSort.sort(arr);  // 1782
+        long e = System.currentTimeMillis();
+        System.out.println(e - s);
+
+//        System.out.println("정렬 후: " + Arrays.toString(arr));
     }
 }
